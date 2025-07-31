@@ -5,10 +5,10 @@ class Quadrado : public Formas{
     public:
     float lado;
     Quadrado() : Formas(1){}
-    void lerAtributosArea(){
+    void lerAtributosArea() override{
         std::cin >> lado;
     }
-    float calcularArea(){
+    float calcularArea() override{
         return lado * lado;
     }
 };

@@ -8,36 +8,42 @@
 
 int main(){
     int tipo;
-    Formas* form;
+    Formas* form = nullptr;
 
-    while (tipo != 0) {
+    while (std::cin >> tipo && tipo != 0) {
+        if (form != nullptr){
+            delete form;
+            form = nullptr;
+        }
         switch (tipo) {
             case 1:{
                 form = new Quadrado();
-                form->lerAtributosArea();
-                std::cout << form->getNome(tipo) << " de área " << form->calcularArea();
                 break;
             }
             case 2:{
                 form = new Retangulo();
-                form->lerAtributosArea();
-                std::cout << form->getNome(tipo) << " de área " << form->calcularArea();
                 break;
             }
             case 3:{
                 form = new Triangulo();
-                form->lerAtributosArea();
-                std::cout << form->getNome(tipo) << " de área " << form->calcularArea();
+                break;
             }
             case 4:{
                 form = new Circulo();
-                form->lerAtributosArea();
-                std::cout << form->getNome(tipo) << " de área " << form->calcularArea();
+                break;
             }
             case 0:{
                 break;
             }
         }
+        if (form != nullptr){
+            form->lerAtributosArea();
+            std::cout << form->getNome() << " de area " << form->calcularArea() << std::endl;
+        }
+    }
+
+    if (form != nullptr){
+        delete form;
     }
 
 

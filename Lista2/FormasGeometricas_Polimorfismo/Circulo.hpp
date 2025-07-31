@@ -3,7 +3,8 @@
 
 class Circulo : public Formas{
     public:
-    float raio, pi = 3.14;
+    float raio;
+    const float pi = 3.14;
 
     Circulo() : Formas(4){}
     float calcularArea(){

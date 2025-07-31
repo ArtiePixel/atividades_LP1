@@ -10,12 +10,12 @@ class Formas{
         tipo = t;
         
     }
-    ~Formas();
-    virtual float calcularArea();
-    virtual void lerAtributosArea();
+    virtual ~Formas() {};
+    virtual float calcularArea() = 0;
+    virtual void lerAtributosArea() = 0;
 
-    std::string getNome(int t){
-        switch (t){
+    std::string getNome(){
+        switch (tipo){
         case 0:
             return "Indefinido";
         case 1:

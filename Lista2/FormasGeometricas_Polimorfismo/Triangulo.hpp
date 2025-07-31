@@ -6,10 +6,10 @@ class Triangulo : public Formas{
     float base, altura;
 
     Triangulo() : Formas(3){}
-    float calcularArea(){
+    float calcularArea() override{
         return (base*altura)/2;
     }
-    void lerAtributosArea(){
+    void lerAtributosArea() override{
         std::cin >> base >> altura;
     }
 };

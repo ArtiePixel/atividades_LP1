@@ -6,10 +6,10 @@ class Retangulo : public Formas{
     float lado, altura;
 
     Retangulo() : Formas(2){}
-    float calcularArea(){
+    float calcularArea() override{
         return lado * altura;
     }
-    void lerAtributosArea(){
+    void lerAtributosArea() override{
         std::cin >> lado >> altura;
     }
 };

@@ -28,7 +28,7 @@ int main(){
         total++;
     }
 
-    media = (float)soma/total;
+    media = (float)soma/(float)total;
 
     std::cout << menor << " ";
     std::cout << maior << " ";

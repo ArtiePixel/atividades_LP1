@@ -16,6 +16,18 @@ class MesaRestaurante : public Pedidos{
         }
     }
     void zeraPedido(){
+        for (int i = 0; i<100; i++){
+            ped[i].setQuantidade(0);
+        }
+    }
+    float calcularTotal(){
+        float total = 0;
+        for (int i = 0; i < 100; i++){
+            total = ped[i].getTotal();
+        }
+        return total;
+    }
+    void exibeConta(){
         
     }
 };

@@ -35,6 +35,9 @@ class Pedidos{
     void aumentarQuantidade(int qnt){
         this->qnt += qnt; 
     }
+    void setQuantidade(int q){
+        qnt = q;
+    }
 
 
 };

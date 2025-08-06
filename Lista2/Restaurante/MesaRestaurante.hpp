@@ -1,4 +1,5 @@
 #include "Pedidos.hpp"
+#pragma once
 
 class MesaRestaurante : public Pedidos{
     private:

@@ -7,13 +7,13 @@ class Restaurante{
 
     public:
     void adicionarMesa(Pedidos p, int indMesa){
-        mesas[indMesa].MesaRestaurante::adicionarPedido(p);
+        mesas[indMesa].adicionarPedido(p);
     }
 
     float calculaTotalRestaurante(){
         float totalRestaurante = 0;
         for (int i = 0; i < 100; i++){
-            totalRestaurante = mesas[i].getTotal();
+            totalRestaurante = mesas[i].calcularTotal();
         }
         return totalRestaurante;
     }

@@ -8,6 +8,7 @@ class Pedidos{
     std::string desc;
 
     public:
+    Pedidos(){}
     Pedidos(int n, int q, float p, std::string d){
         num = n;
         qnt = q;

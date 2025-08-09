@@ -11,7 +11,7 @@ int main(){
 
     std::cin >> numero;
 
-    while(numero != -1){
+    while(numero > 0){
         std::cin.ignore();
         std::getline(std::cin, descricao);
         std::cin >> quantidade;
@@ -20,10 +20,14 @@ int main(){
 
         Pedidos p(numero, quantidade, preco, descricao);
         rest.adicionarMesa(p, numMesa);
-        rest.getMesa(numMesa).exibeConta();
-
         std::cin >> numero;
-        
     }
-    std::cout << "Total Restaurante: " << rest.calculaTotalRestaurante() << std::endl;
+
+    for (int i = 0; i < 100; i++){
+        if (rest.getMesa(i).calcularTotal() > 0){
+            std::cout << "Mesa " << i << std::endl;
+            rest.getMesa(i).exibeConta();
+        }
+    }
+    std::cout << "Total Restaurante: R$ " << rest.calculaTotalRestaurante() << std::endl;
 }

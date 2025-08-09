@@ -10,7 +10,9 @@ class Pedidos{
     public:
     Pedidos(){}
     Pedidos(int n, int q, float p, std::string d){
-        num = n;
+        if (n != -1){
+            num = n;
+        }
         qnt = q;
         preco = p;
         desc = d;
@@ -33,11 +35,12 @@ class Pedidos{
         return desc;
     }
 
-    void aumentarQuantidade(int qnt){
-        this->qnt += qnt; 
-    }
     void setQuantidade(int q){
         qnt = q;
+    }
+
+    void incrementaPedido(int q){
+        qnt += q;
     }
 
 

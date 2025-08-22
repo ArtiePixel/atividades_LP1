@@ -38,7 +38,7 @@ int main(){
         }
         if (form != nullptr){
             form->lerAtributosArea();
-            std::cout << form->getNome() << " de area " << form->calcularArea() << std::endl;
+            std::cout << form->getNome() << " de área " << form->calcularArea() << std::endl;
         }
     }
 

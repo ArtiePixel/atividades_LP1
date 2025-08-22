@@ -1,4 +1,4 @@
-#include "Pagamentos.hpp"
+#include "Pagamento.hpp"
 
 class Controle{
     private:

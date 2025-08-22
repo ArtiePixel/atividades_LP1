@@ -7,8 +7,7 @@
 int main(){
     int tipo;
     std::cin >> tipo;
-
-    do{ 
+    do{
         switch (tipo)
         {
         case 1: {

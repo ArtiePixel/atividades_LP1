@@ -13,7 +13,7 @@ class GerenciadorEleitor{
 
         void verificaPendenciaIdade(Eleitor *el){
             if (el->getIdade() > 20){
-                throw std::underflow_error("Eleitor " + el->getNome() + " com pendência");
+                throw std::overflow_error("Eleitor " + el->getNome() + " com pendência");
             }
         }
 
@@ -24,6 +24,16 @@ class GerenciadorEleitor{
         }
         void verificarEleitores(){
             for (int i = 0; i < eleitores.size(); i++){
-                try { }
+                try {
+                    verificaMenoridade(&eleitores[i]);
+                    verificaPendenciaIdade(&eleitores[i]);
+               }
+                catch (const std::underflow_error e){
+                    std::cerr << e.what() << std::endl;
+                }
+                catch (const std::overflow_error e){
+                    std::cerr << e.what() << std::endl;
+                }
             }
+        }
 };

@@ -1,8 +1,6 @@
 #include "Eleitor.hpp"
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <cctype>
 
 class GerenciadorEleitor{
     private:
@@ -12,8 +10,6 @@ class GerenciadorEleitor{
             if (el->getIdade() < 16){
                 std::string nomeEleitor = el->getNome();
 
-                std::transform(nomeEleitor.begin(), nomeEleitor.end(), nomeEleitor.begin(), ::toupper);
-
                 throw std::underflow_error("Eleitor " + nomeEleitor + " não pode ser cadastrado");
             }
         }
@@ -21,8 +17,6 @@ class GerenciadorEleitor{
         void verificaPendenciaIdade(Eleitor *el){
             if (el->getIdade() > 20){
                 std::string nomeEleitor = el->getNome();
-
-                std::transform(nomeEleitor.begin(), nomeEleitor.end(), nomeEleitor.begin(), ::toupper);
 
                 throw std::overflow_error("Eleitor " + nomeEleitor + " com pendência");
             }
@@ -39,11 +33,11 @@ class GerenciadorEleitor{
                     verificaMenoridade(&eleitores[i]);
                     verificaPendenciaIdade(&eleitores[i]);
                }
-                catch (const std::underflow_error e){
-                    std::cerr << e.what() << std::endl;
+                catch (const std::underflow_error &e){
+                    std::cout << e.what() << std::endl;
                 }
-                catch (const std::overflow_error e){
-                    std::cerr << e.what() << std::endl;
+                catch (const std::overflow_error &e){
+                    std::cout << e.what() << std::endl;
                 }
             }
         }

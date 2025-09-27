@@ -2,16 +2,42 @@
 
 class ContaCorrente : public Conta{
     protected:
-        float salarioMensal;
-        float limite;
+        float salarioMensal, limite;
 
     public:
-        ContaCorrente() : Conta(){
-            salarioMensal = 0;
-            limite = 0;
+        ContaCorrente(std::string name, int n, float s, float sm) : Conta(name, n, s){
+            this->salarioMensal = sm;
+            this->limite = 0.0;
         }
-        ContaCorrente(std::string nameClient, int numAccount, float cash, float moneyMonth, float limit) : Conta(nameClient, numAccount, cash){
-            salarioMensal = moneyMonth;
-            limite = limit;
+        
+        virtual void definirLimite(){
+            this->limite = 2 * this->salarioMensal;
+        }
+
+        float saldoTotalDisponivel(){
+            return this->saldo + this->limite;
+        }
+        void sacar(float val){
+            if(val > saldoTotalDisponivel()){
+                std::cout << "Saldo insuficiente" << std::endl;
+                return;
+            } else {
+                saldo -= val;
+            }
+        }
+
+        void setSalarioMensal(float salarioMensal){
+            this->salarioMensal = salarioMensal;
+        }
+        void setLimite(float limite){
+            this->limite = limite;
+        }
+        
+
+        float getSalarioMensal(){
+            return salarioMensal;
+        }
+        float getLimite(){
+            return limite;
         }
 };

@@ -1,4 +1,6 @@
 #include <string>
+#include <iostream>
+#pragma once
 
 class Conta{
     protected:
@@ -7,28 +9,27 @@ class Conta{
         float saldo;
 
     public:
-        Conta(){
-            numConta = 0;
-            saldo = 0;
-        }
-        Conta(std::string nameClient, int numAccount, float cash){
-            this->nomeCliente = nameClient;
-            this->numConta = numAccount;
-            this->saldo = cash;
+        virtual ~Conta() {}
+        Conta(std::string name, int n, float s){
+            this->nomeCliente = name;
+            this->numConta = n;
+            this->saldo = s;
         }
 
         virtual void sacar(float val) = 0;
+
         void depositar(int val){
-            saldo += val;
+            saldo += float(val);
         }
 
-        void setNomeCliente(std::string nomeCliente){
-            this->nomeCliente = nomeCliente;
+        std::string getNomeCliente(){
+            return nomeCliente;
         }
-        void setNumConta(int numConta){
-            this->numConta = numConta;
+        int getNumConta(){
+            return numConta;
         }
-        void setSalto(float saldo){
-            this->saldo = saldo;
+        float getSaldo(){
+            return saldo;
         }
+
 };
